@@ -28,4 +28,15 @@ public class EntregaController {
     public EntregaZapato addNew(@RequestBody EntregaZapato nuevaEntrega){
         return entregaService.saveEntrega(nuevaEntrega);
     }
+
+    @PutMapping("/actualizar")
+    public EntregaZapato updateEntrega(@RequestBody EntregaZapato nuevaEntrega){
+        return entregaService.updateEntrega(nuevaEntrega);
+    }
+
+    @DeleteMapping("/eliminar")
+    public String deleteEntrega(@RequestParam Long id){
+        entregaService.deleteEntrega(id);
+        return "Entrega eliminada correctamente!";
+    }
 }
